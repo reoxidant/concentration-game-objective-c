@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		443CCF7525151D86000097BD /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 443CCF7425151D86000097BD /* Card.m */; };
 		44DC5AA0251503C500549660 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC5A9F251503C500549660 /* AppDelegate.m */; };
 		44DC5AA3251503C500549660 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC5AA2251503C500549660 /* SceneDelegate.m */; };
 		44DC5AA6251503C500549660 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC5AA5251503C500549660 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		443CCF7325151D86000097BD /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		443CCF7425151D86000097BD /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		44DC5A9B251503C500549660 /* objc-concentration-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "objc-concentration-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DC5A9E251503C500549660 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		44DC5A9F251503C500549660 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,8 +70,6 @@
 		443CCF7125150A75000097BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				44DC5AA7251503C500549660 /* Main.storyboard */,
-				44DC5AAC251503C600549660 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -76,6 +77,8 @@
 		443CCF7225150A8B000097BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				443CCF7325151D86000097BD /* Card.h */,
+				443CCF7425151D86000097BD /* Card.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +102,8 @@
 		44DC5A9D251503C500549660 /* objc-concentration-game */ = {
 			isa = PBXGroup;
 			children = (
+				44DC5AA7251503C500549660 /* Main.storyboard */,
+				44DC5AAC251503C600549660 /* LaunchScreen.storyboard */,
 				443CCF7225150A8B000097BD /* Models */,
 				443CCF6F25150A3F000097BD /* Controllers */,
 				443CCF7125150A75000097BD /* Views */,
@@ -178,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443CCF7525151D86000097BD /* Card.m in Sources */,
 				44DC5AA6251503C500549660 /* ViewController.m in Sources */,
 				44DC5AA0251503C500549660 /* AppDelegate.m in Sources */,
 				44DC5AB1251503C600549660 /* main.m in Sources */,

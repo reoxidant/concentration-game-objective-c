@@ -14,10 +14,14 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (IBAction)actionButton:(UIButton *)sender {
+    if([sender.currentTitle length]){
+        [sender setBackgroundColor:UIColor.orangeColor];
+        [sender setTitle:@"" forState:UIControlStateNormal];
+    }else{
+        [sender setBackgroundColor:UIColor.whiteColor];
+        [sender setTitle:@"A♣️" forState:UIControlStateNormal];
+    }
 }
-
 
 @end
