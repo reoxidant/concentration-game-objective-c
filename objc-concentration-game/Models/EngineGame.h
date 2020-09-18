@@ -1,5 +1,5 @@
 //
-//  Card.h
+//  EngineGame.h
 //  objc-concentration-game
 //
 //  Created by Виталий Шаповалов on 18.09.2020.
@@ -10,11 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Card : NSObject
-
-@property (strong, readonly) NSString *cardName;
-@property (strong, nonatomic) NSString *suit;
-@property (strong, nonatomic) NSString *rank;
+@interface EngineGame : NSObject
 
 @end
 

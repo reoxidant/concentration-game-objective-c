@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		443CCF7525151D86000097BD /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 443CCF7425151D86000097BD /* Card.m */; };
+		443CCF782515326B000097BD /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 443CCF772515326B000097BD /* Deck.m */; };
+		443CCF7B25154346000097BD /* EngineGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 443CCF7A25154346000097BD /* EngineGame.m */; };
 		44DC5AA0251503C500549660 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC5A9F251503C500549660 /* AppDelegate.m */; };
 		44DC5AA3251503C500549660 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC5AA2251503C500549660 /* SceneDelegate.m */; };
 		44DC5AA6251503C500549660 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DC5AA5251503C500549660 /* ViewController.m */; };
@@ -20,6 +22,10 @@
 /* Begin PBXFileReference section */
 		443CCF7325151D86000097BD /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		443CCF7425151D86000097BD /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		443CCF762515326B000097BD /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		443CCF772515326B000097BD /* Deck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		443CCF7925154346000097BD /* EngineGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EngineGame.h; sourceTree = "<group>"; };
+		443CCF7A25154346000097BD /* EngineGame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineGame.m; sourceTree = "<group>"; };
 		44DC5A9B251503C500549660 /* objc-concentration-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "objc-concentration-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DC5A9E251503C500549660 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		44DC5A9F251503C500549660 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,6 +85,10 @@
 			children = (
 				443CCF7325151D86000097BD /* Card.h */,
 				443CCF7425151D86000097BD /* Card.m */,
+				443CCF762515326B000097BD /* Deck.h */,
+				443CCF772515326B000097BD /* Deck.m */,
+				443CCF7925154346000097BD /* EngineGame.h */,
+				443CCF7A25154346000097BD /* EngineGame.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,10 +193,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443CCF7B25154346000097BD /* EngineGame.m in Sources */,
 				443CCF7525151D86000097BD /* Card.m in Sources */,
 				44DC5AA6251503C500549660 /* ViewController.m in Sources */,
 				44DC5AA0251503C500549660 /* AppDelegate.m in Sources */,
 				44DC5AB1251503C600549660 /* main.m in Sources */,
+				443CCF782515326B000097BD /* Deck.m in Sources */,
 				44DC5AA3251503C500549660 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
