@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Deck.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EngineGame : NSObject
+
+- (instancetype)initEngineOfGame;
+@property (strong, nonatomic) Card *randomCard;
 
 @end
 
