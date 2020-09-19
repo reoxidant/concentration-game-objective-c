@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Deck : Card
 
-- (Card*) randomCard: cards;
+- (Card*) randomCard;
 
 @end
 
