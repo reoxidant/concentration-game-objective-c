@@ -7,13 +7,20 @@
 //
 
 #import "ViewController.h"
+#import "EngineGame.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) EngineGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *labelFlips;
 @property (assign, nonatomic) int flipsCount;
 @end
 
 @implementation ViewController
+
+- (EngineGame*)game{
+    if(!_game) _game = [[EngineGame alloc] initEngineOfGame];
+    return _game;
+}
 
 - (void)setFlipsCount:(int)flipsCount{
     if(!flipsCount){
@@ -28,7 +35,7 @@
         [sender setTitle:@"" forState:UIControlStateNormal];
     }else{
         [sender setBackgroundColor:UIColor.whiteColor];
-        [sender setTitle:@"A♣️" forState:UIControlStateNormal];
+        [sender setTitle:self.game.randomCard.cardName forState:UIControlStateNormal];
     }
     self.flipsCount++;
     [self.labelFlips setText:[NSString stringWithFormat:@"Flips: %d", self.flipsCount]];
