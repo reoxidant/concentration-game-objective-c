@@ -73,13 +73,6 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		443CCF7125150A75000097BD /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		443CCF7225150A8B000097BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +109,6 @@
 				44DC5AAC251503C600549660 /* LaunchScreen.storyboard */,
 				443CCF7225150A8B000097BD /* Models */,
 				443CCF6F25150A3F000097BD /* Controllers */,
-				443CCF7125150A75000097BD /* Views */,
 				443CCF7025150A5D000097BD /* SupportingFiles */,
 				44DC5AAF251503C600549660 /* Info.plist */,
 			);
