@@ -65,4 +65,9 @@
     card.isChosen = isChosen;
 }
 
+- (void) setStateForCardByIndex: (NSUInteger) index{
+    Card *card = [self.cards objectAtIndex:index];
+    card.isChosen = YES;
+}
+
 @end
