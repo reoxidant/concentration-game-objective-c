@@ -60,4 +60,14 @@
     return randomCard;
 }
 
+- (void) setIsChosen:(BOOL)isChosen :(NSUInteger) index{
+    Card *card = self.cards[index];
+    card.isChosen = isChosen;
+}
+
+- (void) setStateForCardByIndex: (NSUInteger) index{
+    Card *card = [self.cards objectAtIndex:index];
+    card.isChosen = YES;
+}
+
 @end

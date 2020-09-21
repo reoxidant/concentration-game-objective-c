@@ -10,6 +10,7 @@
 
 @interface EngineGame()
 @property (strong, nonatomic) Deck *deck;
+
 @end
 
 @implementation EngineGame
@@ -21,18 +22,24 @@
     return _deck;
 }
 
-//designed initialization
-- (instancetype)initEngineOfGame
-{
-    self = [super init];
-    if (self){
-        
-    }
-    return self;
+- (NSMutableArray*) playingRandomCards{
+    if(!_playingRandomCards) _playingRandomCards = [[NSMutableArray alloc] init];
+    return _playingRandomCards;
 }
 
-- (Card*) randomCard{
-    return [self.deck randomCard];
+- (void) initRandomCardsForGame: collectionCards{
+    if([collectionCards count] != 0){
+        for (int i = 0; i <= (int)[collectionCards count]; i++) {
+            [self setCardForDeck:[self.deck randomCard]];
+        }
+    }else{
+        NSLog(@"Error collectionCars is nil!");
+    }
+}
+
+- (void) setCardForDeck: card{
+    if(!card) card = [[Card alloc] init];
+    [self.playingRandomCards addObject:card];
 }
 
 @end

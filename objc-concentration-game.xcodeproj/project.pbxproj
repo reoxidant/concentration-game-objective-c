@@ -51,15 +51,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		443CCF6F25150A3F000097BD /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				44DC5AA4251503C500549660 /* ViewController.h */,
-				44DC5AA5251503C500549660 /* ViewController.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		443CCF7025150A5D000097BD /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +77,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		44443C6725173D74001CAED5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				44DC5AA4251503C500549660 /* ViewController.h */,
+				44DC5AA5251503C500549660 /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		44DC5A92251503C500549660 = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +107,8 @@
 			children = (
 				44DC5AA7251503C500549660 /* Main.storyboard */,
 				44DC5AAC251503C600549660 /* LaunchScreen.storyboard */,
+				44443C6725173D74001CAED5 /* Controllers */,
 				443CCF7225150A8B000097BD /* Models */,
-				443CCF6F25150A3F000097BD /* Controllers */,
 				443CCF7025150A5D000097BD /* SupportingFiles */,
 				44DC5AAF251503C600549660 /* Info.plist */,
 			);

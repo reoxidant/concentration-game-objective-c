@@ -8,37 +8,45 @@
 
 #import "ViewController.h"
 #import "EngineGame.h"
+#import "Card.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardsCollection;
 @property (strong, nonatomic) EngineGame *game;
-@property (weak, nonatomic) IBOutlet UILabel *labelFlips;
-@property (assign, nonatomic) int flipsCount;
+
 @end
 
 @implementation ViewController
 
 - (EngineGame*)game{
-    if(!_game) _game = [[EngineGame alloc] initEngineOfGame];
+    if(!_game) _game = [[EngineGame alloc] init];
     return _game;
 }
 
-- (void)setFlipsCount:(int)flipsCount{
-    if(!flipsCount){
-        _flipsCount = 1;
+- (IBAction)actionButton:(UIButton *)sender {
+    NSUInteger index = [_cardsCollection indexOfObject:sender];
+    
+    [self.game initRandomCardsForGame:self.cardsCollection];
+    
+    if([sender.currentTitle length]){
+        [self flipBackCard:sender];
+    }else{
+        [self flipFrontCard:sender byIndex:(int)index];
     }
-    _flipsCount = flipsCount;
 }
 
-- (IBAction)actionButton:(UIButton *)sender {
-    if([sender.currentTitle length]){
-        [sender setBackgroundColor:UIColor.orangeColor];
-        [sender setTitle:@"" forState:UIControlStateNormal];
-    }else{
-        [sender setBackgroundColor:UIColor.whiteColor];
-        [sender setTitle:self.game.randomCard.cardName forState:UIControlStateNormal];
-    }
-    self.flipsCount++;
-    [self.labelFlips setText:[NSString stringWithFormat:@"Flips: %d", self.flipsCount]];
+- (void) flipBackCard: sender{
+    [sender setBackgroundColor:UIColor.systemOrangeColor];
+    [sender setTitle:@"" forState:UIControlStateNormal];
+}
+
+- (void) flipFrontCard: sender byIndex: (int) index{
+    [sender setBackgroundColor:UIColor.whiteColor];
+
+    Card* card = [[self.game playingRandomCards] objectAtIndex:index];
+    
+    [sender setTitle:card.cardName forState:UIControlStateNormal];
 }
 
 @end

@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, readonly) NSString *cardName;
 @property (strong, nonatomic) NSString *suit;
 @property (strong, nonatomic) NSString *rank;
+@property (nonatomic) BOOL isChosen;
+@property (nonatomic) BOOL isMathed;
 
 @end
 
