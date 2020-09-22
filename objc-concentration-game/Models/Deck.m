@@ -70,4 +70,9 @@
     card.isChosen = YES;
 }
 
+- (int) matchToEachOther: faceUpCards{
+    return 0;
+}
+
+
 @end

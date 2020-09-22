@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *suit;
 @property (strong, nonatomic) NSString *rank;
 @property (nonatomic) BOOL isChosen;
-@property (nonatomic) BOOL isMathed;
+@property (nonatomic) BOOL isMatched;
+
 
 @end
 

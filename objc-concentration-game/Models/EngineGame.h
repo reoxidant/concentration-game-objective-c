@@ -14,9 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EngineGame : NSObject
 
-- (instancetype)initAndCreateDeckByCountElements: (NSUInteger)count;
-- (void) setUpCardsAsChosenAtIndex:(NSUInteger)index;
-
+- (instancetype)initAndCreateByOptions: (NSUInteger) countElements initCountOfMatches:(NSUInteger) countOfMatches;
+- (void) handleChosenCardAtIndex:(NSUInteger)index;
 @end
 
 NS_ASSUME_NONNULL_END

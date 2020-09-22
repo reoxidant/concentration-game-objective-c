@@ -21,7 +21,7 @@
 @implementation ViewController
 
 - (EngineGame*)game{
-    if(!_game) _game = [[EngineGame alloc] initAndCreateDeckByCountElements: [self.cardsCollection count]];
+    if(!_game) _game = [[EngineGame alloc] initAndCreateByOptions: [self.cardsCollection count] initCountOfMatches:2];
     return _game;
 }
 - (IBAction)dealPressed:(UIButton *)sender {
@@ -31,7 +31,7 @@
 - (IBAction)actionButton:(UIButton *)sender {
     self.switcherMatchesOfCards.enabled = NO;
     NSUInteger indexOfCard = [self.cardsCollection indexOfObject:sender];
-    [self.game setUpCardsAsChosenAtIndex:indexOfCard];
+    [self.game handleChosenCardAtIndex:indexOfCard];
 }
 
 - (void) flipBackCard: sender{

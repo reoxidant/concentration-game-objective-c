@@ -11,10 +11,16 @@
 @interface EngineGame()
 @property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) NSMutableArray* playingCards;
+@property (strong, nonatomic) NSMutableArray* faceUpCards;
+@property (nonatomic) NSUInteger countOfMatches;
 @end
 
 @implementation EngineGame
 
+- (NSMutableArray*) faceUpCards{
+    if(!_faceUpCards) _faceUpCards = [[NSMutableArray alloc] init];
+    return _faceUpCards;
+}
 
 - (NSMutableArray*) playingCards{
     if(!_playingCards) _playingCards = [[NSMutableArray alloc] init];
@@ -28,20 +34,46 @@
     return _deck;
 }
 
-- (instancetype)initAndCreateDeckByCountElements: (NSUInteger) count
+- (instancetype)initAndCreateByOptions: (NSUInteger) countElements initCountOfMatches:(NSUInteger) countOfMatches
 {
     self = [super init];
     if (self) {
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < countElements; i++) {
             [self.playingCards addObject:[self.deck randomCard]];
         }
+        self.countOfMatches = countOfMatches;
     }
     return self;
 }
 
-- (void) setUpCardsAsChosenAtIndex:(NSUInteger)index{
+- (void) handleChosenCardAtIndex:(NSUInteger)index{
     Card *card = [self.playingCards objectAtIndex:index];
-    NSLog(@"Hello you card is: %@", card.cardName);
+    if(!card.isMatched && !card.isChosen){
+        self.faceUpCards = [[NSMutableArray alloc] initWithArray:@[card]];
+        [self findAndAddOtherChosenCardsInArray];
+        [self checkScoreIfFaceUpCardsEqualMathes];
+        card.isChosen = YES;
+    }else{
+        card.isChosen = NO;
+    }
 }
+
+- (void) findAndAddOtherChosenCardsInArray{
+    for (Card *otherCard in self.playingCards) {
+        if(otherCard.isChosen && !otherCard.isMatched){
+            [self.faceUpCards insertObject:otherCard atIndex:0];
+        }
+    }
+}
+
+- (void) checkScoreIfFaceUpCardsEqualMathes{
+    if([self.faceUpCards count] == self.countOfMatches){
+        if([self.deck matchToEachOther: self.faceUpCards]){
+            
+        }
+    }
+}
+
+
 
 @end
