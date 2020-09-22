@@ -32,6 +32,16 @@
     self.switcherMatchesOfCards.enabled = NO;
     NSUInteger indexOfCard = [self.cardsCollection indexOfObject:sender];
     [self.game handleChosenCardAtIndex:indexOfCard];
+    [self updateUI];
+}
+
+- (void) updateUI{
+    for (UIButton *buttonOfCard in self.cardsCollection) {
+        NSUInteger indexOfButton = [self.cardsCollection indexOfObject:buttonOfCard];
+        Card* card = [self.game cardAtIndex:indexOfButton];
+        [buttonOfCard setTitle:(card.isChosen)? card.cardName:@"" forState:UIControlStateNormal];
+        [buttonOfCard setBackgroundColor: (card.isChosen)? UIColor.whiteColor : UIColor.systemOrangeColor];
+    }
 }
 
 - (void) flipBackCard: sender{
