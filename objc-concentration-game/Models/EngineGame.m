@@ -69,13 +69,19 @@
 - (void) checkScoreIfFaceUpCardsEqualMathes{
     if([self.faceUpCards count] == self.countOfMatches){
         if([self.deck matchToEachOther: self.faceUpCards]){
-            
+            for (Card* faceUpCard in self.faceUpCards) {
+                faceUpCard.isMatched = YES;
+            }
         }
     }
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index{
     return (index < [self.playingCards count]) ? self.playingCards[index] : nil;
+}
+
+- (BOOL) isOver{
+    return ([self.deck matchToEachOther:self.faceUpCards] && [self.faceUpCards count] <= 3)? YES : NO;
 }
 
 @end

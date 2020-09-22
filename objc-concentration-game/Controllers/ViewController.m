@@ -39,19 +39,16 @@
     for (UIButton *buttonOfCard in self.cardsCollection) {
         NSUInteger indexOfButton = [self.cardsCollection indexOfObject:buttonOfCard];
         Card* card = [self.game cardAtIndex:indexOfButton];
-        [buttonOfCard setTitle:(card.isChosen)? card.cardName:@"" forState:UIControlStateNormal];
-        [buttonOfCard setBackgroundColor: (card.isChosen)? UIColor.whiteColor : UIColor.systemOrangeColor];
+        if(![self.game isOver]){
+            [buttonOfCard setTitle:(card.isChosen)? card.cardName:@"" forState:UIControlStateNormal];
+            [buttonOfCard setBackgroundColor: (card.isChosen)? UIColor.whiteColor : UIColor.systemOrangeColor];
+            buttonOfCard.enabled = !card.isMatched;
+        }else{
+            [buttonOfCard setTitle:card.cardName forState:UIControlStateNormal];
+            [buttonOfCard setBackgroundColor: UIColor.whiteColor];
+            buttonOfCard.enabled = YES;
+        }
     }
-}
-
-- (void) flipBackCard: sender{
-    [sender setBackgroundColor:UIColor.systemOrangeColor];
-    [sender setTitle:@"" forState:UIControlStateNormal];
-}
-
-- (void) flipFrontCard: sender inCard: (Card*) card{
-    [sender setBackgroundColor:UIColor.whiteColor];
-    [sender setTitle:card.cardName forState:UIControlStateNormal];
 }
 
 @end

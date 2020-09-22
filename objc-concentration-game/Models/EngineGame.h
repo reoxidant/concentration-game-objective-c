@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initAndCreateByOptions: (NSUInteger) countElements initCountOfMatches:(NSUInteger) countOfMatches;
 - (void) handleChosenCardAtIndex:(NSUInteger)index;
 - (Card*) cardAtIndex: (NSUInteger)index;
+- (BOOL) isOver
 @end
 
 NS_ASSUME_NONNULL_END
