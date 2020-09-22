@@ -14,26 +14,24 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardsCollection;
 @property (strong, nonatomic) EngineGame *game;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *switcherMatchesOfCards;
 
 @end
 
 @implementation ViewController
 
 - (EngineGame*)game{
-    if(!_game) _game = [[EngineGame alloc] init];
+    if(!_game) _game = [[EngineGame alloc] initAndCreateDeckByCountElements: [self.cardsCollection count]];
     return _game;
+}
+- (IBAction)dealPressed:(UIButton *)sender {
+    self.game = nil;
 }
 
 - (IBAction)actionButton:(UIButton *)sender {
-    NSUInteger index = [_cardsCollection indexOfObject:sender];
-    
-    [self.game initRandomCardsForGame:self.cardsCollection];
-    
-    if([sender.currentTitle length]){
-        [self flipBackCard:sender];
-    }else{
-        [self flipFrontCard:sender byIndex:(int)index];
-    }
+    self.switcherMatchesOfCards.enabled = NO;
+    NSUInteger indexOfCard = [self.cardsCollection indexOfObject:sender];
+    [self.game setUpCardsAsChosenAtIndex:indexOfCard];
 }
 
 - (void) flipBackCard: sender{
@@ -41,11 +39,8 @@
     [sender setTitle:@"" forState:UIControlStateNormal];
 }
 
-- (void) flipFrontCard: sender byIndex: (int) index{
+- (void) flipFrontCard: sender inCard: (Card*) card{
     [sender setBackgroundColor:UIColor.whiteColor];
-
-    Card* card = [[self.game playingRandomCards] objectAtIndex:index];
-    
     [sender setTitle:card.cardName forState:UIControlStateNormal];
 }
 

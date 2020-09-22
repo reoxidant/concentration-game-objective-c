@@ -543,6 +543,9 @@
                                         <state key="normal" title="Deal">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="dealPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cAI-rL-f6m"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -562,6 +565,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="switcherMatchesOfCards" destination="BvN-VQ-63c" id="iWP-kk-YP4"/>
                         <outletCollection property="cardsCollection" destination="0WD-i2-ar0" id="69g-zx-nTu"/>
                         <outletCollection property="cardsCollection" destination="Qp0-UQ-t7I" id="h0e-ba-jGr"/>
                         <outletCollection property="cardsCollection" destination="wDd-dw-OJQ" id="tee-sW-XWj"/>

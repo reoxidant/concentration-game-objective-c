@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EngineGame : NSObject
 
-- (void) initRandomCardsForGame: countOfCards;
-@property (strong, nonatomic) NSMutableArray *playingRandomCards;
+- (instancetype)initAndCreateDeckByCountElements: (NSUInteger)count;
+- (void) setUpCardsAsChosenAtIndex:(NSUInteger)index;
 
 @end
 

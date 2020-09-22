@@ -10,10 +10,16 @@
 
 @interface EngineGame()
 @property (strong, nonatomic) Deck *deck;
-
+@property (strong, nonatomic) NSMutableArray* playingCards;
 @end
 
 @implementation EngineGame
+
+
+- (NSMutableArray*) playingCards{
+    if(!_playingCards) _playingCards = [[NSMutableArray alloc] init];
+    return _playingCards;
+}
 
 - (Deck*)deck{
     if(!_deck){
@@ -22,24 +28,20 @@
     return _deck;
 }
 
-- (NSMutableArray*) playingRandomCards{
-    if(!_playingRandomCards) _playingRandomCards = [[NSMutableArray alloc] init];
-    return _playingRandomCards;
-}
-
-- (void) initRandomCardsForGame: collectionCards{
-    if([collectionCards count] != 0){
-        for (int i = 0; i <= (int)[collectionCards count]; i++) {
-            [self setCardForDeck:[self.deck randomCard]];
+- (instancetype)initAndCreateDeckByCountElements: (NSUInteger) count
+{
+    self = [super init];
+    if (self) {
+        for (int i = 0; i < count; i++) {
+            [self.playingCards addObject:[self.deck randomCard]];
         }
-    }else{
-        NSLog(@"Error collectionCars is nil!");
     }
+    return self;
 }
 
-- (void) setCardForDeck: card{
-    if(!card) card = [[Card alloc] init];
-    [self.playingRandomCards addObject:card];
+- (void) setUpCardsAsChosenAtIndex:(NSUInteger)index{
+    Card *card = [self.playingCards objectAtIndex:index];
+    NSLog(@"Hello you card is: %@", card.cardName);
 }
 
 @end
