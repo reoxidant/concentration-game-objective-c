@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Deck : Card
 
 - (Card*) randomCard;
-
+- (int) matchToEachOther: faceUpCards;
 @end
 
 NS_ASSUME_NONNULL_END

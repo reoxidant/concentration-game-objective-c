@@ -14,39 +14,41 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardsCollection;
 @property (strong, nonatomic) EngineGame *game;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *switcherMatchesOfCards;
 
 @end
 
 @implementation ViewController
 
 - (EngineGame*)game{
-    if(!_game) _game = [[EngineGame alloc] init];
+    if(!_game) _game = [[EngineGame alloc] initAndCreateByOptions: [self.cardsCollection count] initCountOfMatches:2];
     return _game;
+}
+- (IBAction)dealPressed:(UIButton *)sender {
+    self.game = nil;
 }
 
 - (IBAction)actionButton:(UIButton *)sender {
-    NSUInteger index = [_cardsCollection indexOfObject:sender];
-    
-    [self.game initRandomCardsForGame:self.cardsCollection];
-    
-    if([sender.currentTitle length]){
-        [self flipBackCard:sender];
-    }else{
-        [self flipFrontCard:sender byIndex:(int)index];
+    self.switcherMatchesOfCards.enabled = NO;
+    NSUInteger indexOfCard = [self.cardsCollection indexOfObject:sender];
+    [self.game handleChosenCardAtIndex:indexOfCard];
+    [self updateUI];
+}
+
+- (void) updateUI{
+    for (UIButton *buttonOfCard in self.cardsCollection) {
+        NSUInteger indexOfButton = [self.cardsCollection indexOfObject:buttonOfCard];
+        Card* card = [self.game cardAtIndex:indexOfButton];
+        if(![self.game isOver]){
+            [buttonOfCard setTitle:(card.isChosen)? card.cardName:@"" forState:UIControlStateNormal];
+            [buttonOfCard setBackgroundColor: (card.isChosen)? UIColor.whiteColor : UIColor.systemOrangeColor];
+            buttonOfCard.enabled = !card.isMatched;
+        }else{
+            [buttonOfCard setTitle:card.cardName forState:UIControlStateNormal];
+            [buttonOfCard setBackgroundColor: UIColor.whiteColor];
+            buttonOfCard.enabled = YES;
+        }
     }
-}
-
-- (void) flipBackCard: sender{
-    [sender setBackgroundColor:UIColor.systemOrangeColor];
-    [sender setTitle:@"" forState:UIControlStateNormal];
-}
-
-- (void) flipFrontCard: sender byIndex: (int) index{
-    [sender setBackgroundColor:UIColor.whiteColor];
-
-    Card* card = [[self.game playingRandomCards] objectAtIndex:index];
-    
-    [sender setTitle:card.cardName forState:UIControlStateNormal];
 }
 
 @end

@@ -14,9 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EngineGame : NSObject
 
-- (void) initRandomCardsForGame: countOfCards;
-@property (strong, nonatomic) NSMutableArray *playingRandomCards;
-
+- (instancetype)initAndCreateByOptions: (NSUInteger) countElements initCountOfMatches:(NSUInteger) countOfMatches;
+- (void) handleChosenCardAtIndex:(NSUInteger)index;
+- (Card*) cardAtIndex: (NSUInteger)index;
+- (BOOL) isOver
 @end
 
 NS_ASSUME_NONNULL_END

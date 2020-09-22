@@ -70,4 +70,29 @@
     card.isChosen = YES;
 }
 
+- (int) matchToEachOther:(NSMutableArray*) faceUpCards{
+    
+    int score = 0;
+    
+    for(int i = 0; i < [faceUpCards count]; i++){
+        
+        Card* card1 = [faceUpCards objectAtIndex:(NSUInteger)i];
+        
+        for(int k = i+1; k < [faceUpCards count]; k++){
+            Card* card2 = [faceUpCards objectAtIndex:(NSUInteger)k];
+            
+            if(card1.suit == card2.suit){
+                score = 1;
+            }
+            
+            if(card1.rank == card2.rank){
+                score = 4;
+            }
+        }
+    }
+    
+    return score;
+}
+
+
 @end
